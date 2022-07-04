@@ -1,25 +1,45 @@
  <!DOCTYPE html>
 <html>
 
-    <head>
-        <link rel="stylesheet" href="music.css">
-        <script language="javascript" src="albumList.js"></script>
-        <script language="javascript" src="music.js"></script>
-    </head>
-    
-
-
+<head>
+    <title>Evan Moring</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="evanmoring.com">
+    <link rel="stylesheet" href="../css/music.css">
+    <script language="javascript" src="./albumList.js"></script>
+    <script language="javascript" src="./music.js"></script>
+</head>
 
 <body onload="albumGen(albumList)">
-    <div id="songs"></div>
-    <div id="player"></div>
-    <div id="audioplayer">
-        <div id ="songName"></div>
-        <button id="pButton" class="play"></button>
-        <div id="timeline">
-            <div id="playhead"></div>
+    <div id="backgroundImage"></div>
+    <div id="wrapper">
+        <div id="songs"></div>
+        <div id="rightColumn">
+            <div id="player"></div>
+        
+            <div id="text">
+                <div style="font-size:30px;"><b>Szasz</b></div>
+                <br>
+                <span>Andrew Ware and I formed Szasz in 2012. We recorded Volumes I - IV in quick succession in Encinitas, California. I play guitar, bass, keyboards. Andrew plays drums. We both did vocals and recording.</span>
+                <br>
+                <br>
+                <span>For Volume V I took over drums. It was recorded in San Francisco in 2018.</span>
+                <br><br>
+                <span>I'm working on the finishing touches on Volume III and IV so they will but up at some point. If you would like digital versions of the recordings email me and I can give you them.</span>
+                <br><br>
+                <span>Many people have lent us equipment, given us a place to record, or given us technical advice. Special thanks to Diane Baxter, Aaron Dennis, Rene Esteban Franco, Kyle Herbert, John Moring, Mary Jo Preti, Diego Villalobos, Pedro Verdin, and Garth Ware. Also thank you to our biggest fan, Tony Hicks. </span>
+                <br><br><span><a href="/">home</a></span>
+            </div>
+        
+            <div id="audioplayer">
+                <div id ="songName"></div>
+                <button id="pButton" class="play"></button>
+                <div id="timeline">
+                    <div id="playhead"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
-    
-    
+</html>
