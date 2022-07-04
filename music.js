@@ -100,7 +100,7 @@ class Song {
 function playNext(){
     pauseAll()
     nextIndex = sList.indexOf(currentlyPlaying)+1;
-    if (nextIndex = sList.length) {
+    if (nextIndex == sList.length) {
         nextIndex = 0;
     }
     sList[nextIndex].play();
@@ -131,7 +131,7 @@ function playerClick(song) {
     currentSong = song
 	if (song.audio.paused) {
         console.log("PAUSED")
-		song.play();
+		song.audio.play();
 		pButton.className = "";
 		pButton.className = "pause";
 	} 
