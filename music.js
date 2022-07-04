@@ -13,10 +13,6 @@ function albumGen(albumList){
     
 class Album {
     constructor(title, songList){
-        console.log("TITLE")
-        console.log(title)
-        console.log("SONGLIST")
-        console.log(songList)
         this.title = title;
         this.songList = songList;
         this.div = document.createElement("DIV");
@@ -35,7 +31,6 @@ class Album {
             let song = new Song(currentTitle, currentPath, this);
             sList.push(song)
         }
-
     }
 }
 
@@ -47,7 +42,6 @@ class Song {
         this.audio;
         this.create_audio_divs();
         this.create_button(); 
-
     }
 
     create_button(){
@@ -68,17 +62,18 @@ class Song {
         
         this.audio = document.createElement("AUDIO");
         this.audio.src = this.path;
+        this.audio.preload = "metadata";
         this.div.appendChild(this.audio);
         
         this.audio.addEventListener("ended", () => {
              playNext();
         });
-
     }
 
     play(){
         pauseAll();
         var this_song = this; 
+        pButton.className = "pause";
         this.audio.play();
         document.getElementById("songName").innerHTML=(this.title);
         currentlyPlaying = this; 
@@ -88,12 +83,13 @@ class Song {
 
     pause(){
       this.audio.pause();
-      pButton.className = "pause";
+      pButton.className = "play";
     }
+
     reset(){
       this.audio.pause();
       this.audio.currentTime=0;
-      pButton.className = "pause";
+      pButton.className = "play";
     }
 }
 
@@ -123,14 +119,13 @@ function pauseAll() {
 function hideAll(exception) {
     for (var i = 0; i < sList.length; i++) {
         sList[i].div.style.display="none";
-    exception.div.style.display="block";   
     }
+    exception.div.style.display="block";   
 }
 
 function playerClick(song) {
     currentSong = song
 	if (song.audio.paused) {
-        console.log("PAUSED")
 		song.audio.play();
 		pButton.className = "";
 		pButton.className = "pause";
@@ -160,23 +155,18 @@ function timeUpdate() {
         pButton.className = "play";
     }
 }
-
-// Gets audio file duration
     
-//Makes timeline clickable
 timeline.addEventListener("click", function (event) {
 	moveplayhead(event);
 	music.currentTime = duration * clickPercent(event);
 }, false);
 
-// returns click as decimal (.77) of the total timelineWidth
 function clickPercent(event) {
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
     return (event.clientX - getPosition(timeline)) / timelineWidth;
 
 }
     
-// timeline width adjusted for playhead
 var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
 function moveplayhead(event) {
@@ -192,11 +182,8 @@ function moveplayhead(event) {
 	if (newMargLeft > timelineWidth) {
 		playhead.style.marginLeft = timelineWidth + "px";
 	}
-    
-}}
+}
 
-// getPosition
-// Returns elements left position relative to top-left of viewport
-    function getPosition(el) {
-        return el.getBoundingClientRect().left;
-    }
+function getPosition(el) {
+    return el.getBoundingClientRect().left;
+}
