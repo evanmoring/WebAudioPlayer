@@ -21,16 +21,29 @@ var albumList = [
 
 var pathList = [];
 var currentlyPlaying = '';
+var sList = [];
+var aList = [];
     
 
 function changeText(target,newText) {
     document.getElementById(target).innerHTML=newText;
 
 }
+
+function playNext(){
+    pauseAll()
+    console.log(sList)
+    nextIndex = sList.indexOf(currentlyPlayingName)+1;
+    console.log(nextIndex)
+    aList[nextIndex].play();
+    nextSong = sList[nextIndex];
+    changeCurrentlyPlaying(nextSong);
+}
     
 function createAudio(songList,albumName) {
     songName = songList[0];
     songPath = songList[1];
+    sList.push(songName);
     audDivName = "aud"+String(songName);
     butDivName = "but"+String(songName);
     
@@ -44,6 +57,12 @@ function createAudio(songList,albumName) {
     aud.setAttribute("src", songPath);
     document.getElementById(songPath).appendChild(aud);
     
+    aList.push(aud);
+    aud.addEventListener("ended", () => {
+         playNext();
+         console.log('ended')
+   });
+    
     var btn = document.createElement("DIV");
     btn.innerHTML = songName;
     btn.setAttribute('id',butDivName);
@@ -53,6 +72,7 @@ function createAudio(songList,albumName) {
 }
     
 function changeCurrentlyPlaying (currentPlay){
+    currentlyPlayingName = currentPlay
     document.getElementById("songName").innerHTML=(String(currentPlay));
     cPlay = audDivName = "aud"+String(currentPlay);
     currentlyPlaying = cPlay;
