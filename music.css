@@ -1,39 +1,86 @@
+html {
+    
+    0%, rgb(216, 221, 221) 100%);
+    -webkit-font-smoothing: antialiased;
+
+}
+
+body {
+    padding: 25px;
+    font-family: "Helvetica","Times",serif;
+    margin: 0;
+}
+
+#content {
+    position: relative;
+    padding: px;
+    padding-bottom: 0px;
+    z-index: 1;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: .0;
+}
+
+
 body{
-    font-family: sans-serif;
+    background: black}
+
+        #wrapper
+        {    width: 960px;
+            margin: 0 auto;
+             font-family: "Helvetica","Times",serif;
+    color: white;
+    font-size: 22px;
+    display: flex;
+        } 
+        
+link {
+text-decoration: underline;
+    color:white;
+    
+}
+link:hover {
+    font-weight: ;
+    color:hotpink;
+    text-decoration: underline;
+
 }
 
-
-#wrapper{}
         
-.songMouseOver {}       
-        
-.songMouseOver:hover {
-    color: red;
-}
-        
-.albumTitle {
-    color: red;
-    font-size: 20px;
+#backgroundImage{
+min-height: 100%;
+width: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../img/darrensmall.jpg);  
+position: fixed;
+top:0px;
+    left: 0px;
+z-index: -1;
         }
-            
-#audioplayer{
-    margin-top: 20px;
-    width: 500px;
-    height: 100px;
-    border: solid;
+        
+#pButton{
+	height:60px;
+	width: 60px;
+	border: none;
+	background-size: 50% 50%;
+	background-position: center;
     float: left;
-    display:none; 
-        }
+}
+.play{background: url('../img/playwhite.png') no-repeat;}
+.pause{background: url('../img/pausewhite.png') no-repeat;}
 
 #songName{
-    margin-top: 10px;
+         margin-top: 10px;
     margin-left: 15px;
 }
-
+        
 #timeline{
 	width: 400px;
 	height: 18px;
-	background: black;
+	background: white;
 	margin-top: 20px;
 	float: left;
 	border-radius: 15px;
@@ -44,16 +91,84 @@ body{
 	height: 18px;
 	border-radius: 50%;
 	margin-top: ;
-	background: red;
+	background: hotpink;
+}
+#songs{
+    background: ;
+    float:left ;
+    position: relative;
+
+    width: 400px;
+    display:inline;
+    margin: 10px;    
+        }
+        
+#rightColumn{
+    margin: auto 0;
+    float: right;
+    display:inline;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    margin-top: 35px;
+
+        }
+#audioplayer{
+    background: black;
+    position:;
+    bottom: 10px;
+    left:0px;
+    position: relative;
+    height: 100px;
+    border: solid;
+    display: none; 
+        }
+#text{
+    background: black;
+    padding: 10px;
+    padding-top: 20px;
+    font-size: 18px;
+    border: solid;
+    display: block; 
+    margin-bottom: 30px;
+        }
+        
+ .songMouseOver {
+margin-left: 20px;
+margin-bottom: 5px;
+}       
+        
+.songMouseOver:hover {
+    color: hotpink;
+    font-weight: bold;
+}
+        
+.albumTitle {
+    color: hotpink;
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-size: 24px;
+
 }
 
-#pButton{
-	height:60px;
-	width: 60px;
-	border: none;
-	background-size: 50% 50%;
-	background-position: center;
-    float: left;
+.chosen_selector{
+    padding: 10px;
+    padding-bottom: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: hotpink;
+    color: black
+    }
+
+
+a {
+text-decoration: underline;
+    color:white;
+    
 }
-.play{background: url('play.png') no-repeat;}
-.pause{background: url('pause.png') no-repeat;}
+a:hover {
+    font-weight: ;
+    color:hotpink;
+    text-decoration: underline;
+
+}
